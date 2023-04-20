@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vos événements{% endblock %}
+
+{% block body %}
+
+<style>
+   
+ .hhh{
+      text-decoration: none;
+      color: antiquewhite;
+  }
+  .di {
+    position: relative;
+  }
+</style>
+    <div class="di">
+        h
+    </div>
+      <div class="row my-5">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Titre</th>
+                        <th scope="col">Lieu</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Image</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for event in user.events %}
+                     <tr>
+                        <th scope="row">{{event.titre}}</th>
+                        <td> {{event.lieu}} </td>
+                        <td> {{event.date | date("m/d/Y") }} </td>
+                        
+                        <td> 
+                            {% if event.image %}
+                            <img src="{{ asset('uploads/'~event.image )}}" width="60" height="60">
+                            {% else %}
+                            <img src="{{ asset('image/null.jpg' )}}" width="60" height="60">
+                            {% endif %}
+                         </td>
+                        <td>
+                          <button class="btn btn-primary my-2"> <a class="hhh" href="{{path('show_event',{id:event.id})}}">vieux</a></button>
+                          <button class="btn btn-primary my-2"><a class="hhh" href="{{path('vos_event_edite',{id:event.id})}}">modifier</a></button>
+                          <button class="btn btn-primary my-2"><a class="hhh" href="{{path('vos_event_delet',{id:event.id})}}">supprimer</a></button>
+                        </td>
+                      </tr>
+                     {% endfor %}
+                    </tbody>
+                  </table>  
+            </div>
+        </div>
+      </div>
+    
+{% endblock %}

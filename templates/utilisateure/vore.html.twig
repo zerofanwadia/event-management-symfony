@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vos résérvations{% endblock %}
+
+{% block body %}
+
+<style>
+   
+ .hhh{
+      text-decoration: none;
+      color: antiquewhite;
+  }
+  .di {
+    position: relative;
+  }
+</style>
+    <div class="di">
+        h
+    </div>
+      <div class="row my-5">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Titre</th>
+                        <th scope="col">Lieu</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">N.R</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for event in user.reserves %}
+                     <tr>
+                        <th scope="row">{{event.event.titre}}</th>
+                        <td> {{event.event.lieu}} </td>
+                        <td> {{event.event.date | date("m/d/Y") }} </td> 
+                        <td></td>
+                        <td>
+                          <button class="btn btn-primary my-2"> <a class="hhh" href="{{path('show_event',{ id:event.event.id })}}">vieux</a></button>
+                          <button class="btn btn-primary my-2"><a class="hhh" href="{{path('vos_reserve_delet',{ id:event.id })}}">supprimer</a></button>
+                        </td>
+                      </tr>
+                     {% endfor %}
+                    </tbody>
+                  </table>  
+            </div>
+        </div>
+      </div>
+    
+{% endblock %}

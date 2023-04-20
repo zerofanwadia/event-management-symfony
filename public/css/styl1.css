@@ -1,0 +1,109 @@
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    scroll-behavior: smooth; /* bach ila wetiti 3ela services tenta9al lih betari9a smooth*/
+    margin: 0cm;
+    padding: 0cm;
+    box-sizing: border-box; /*bach matzidch safha teharak 3ela liman wela lisar*/
+}
+header{
+    background-color: #F6F6F6;
+    width: 100%;
+    position: fixed;        /*kateb9a lhaja fix wakha netala3 la page matemchich*/
+    z-index: 999;           /*bach teb9a lhaja katban hiya fo9 mn ay haja khera*/
+    display: flex;          /* katkhali lhaja tkon f star wahed*/
+    justify-content: space-around; /*katkhali masaaafa bin kola tage(balise)*/
+    align-items: center;    /*katkon lkitaba f center dakhil l2itar (center mabin lfo9 o ltahet)*/
+    padding: 19px 0px;
+   position: relative;
+    
+    
+}
+
+#wad img{
+    width: 120px;
+}
+
+.linpag a{
+    text-decoration: none;
+    font-family:Arial, Helvetica, sans-serif ;
+    font-size: 18px;
+    color: #000000;
+    padding: 25px 30px;
+    font-weight: 500;
+}
+.linpag a:hover{
+    color: #99DDCC; 
+}
+
+/* ----------------------------------------------------------------------- */
+.bac img{
+    position: absolute;
+    width: 100%;
+}
+
+section{
+    padding: 100px 200px;
+}
+.main{
+    position: relative; /*bach teban hiya li lfo9 mn bac img*/
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /*bach matharakech meli netala3 la page*/
+    padding-top: 200px;
+}
+.main h2{
+    font-size: 23px;
+    color: white;
+}
+.main h2 span{
+    display: inline-block;     /*katkhalina nediro lpadding ila ma darnahach maghadich ikhedam*/
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 80px;
+    padding-top: 20px;
+     
+}
+.my{
+    flex-wrap: wrap;
+}
+
+.main h3{
+    color: white;
+    font-size: 35px;
+    padding: 15px;
+    padding-bottom: 29px;
+}
+
+.for-ro input{
+    float: right;
+    padding: 6px;
+     margin: 8px;
+     font-size: 25px;
+     border: 2px solid #FFE2E2;
+     box-shadow: 0 5px 25px rgba(1 1 1 / 15%);
+     border-radius: 10px;
+} 
+.for-ro{
+    display: flex;
+    justify-content: center;
+}
+section button{
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: 600;
+    color: rgb(2, 2, 2);
+    display: inline-block;
+    background-color: #F6F6F6;
+    padding: 5px 20px;
+    border-radius: 15px;   /*zawiya deyal l2itar matkonch hada*/
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    transition: 0.8s ease ; /*lmoda li ghadi itra fiha tahawol li dart f hover wi kon bisalasa*/
+    margin-top:10px ;
+    
+}
+.card1{
+    margin: 30px 50px;
+}

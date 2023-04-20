@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset('css/styl.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    * {
+        margin: 0;
+        padding: 0
+    }
+    
+    body {
+        background-color: #000
+    }
+    
+    .card {
+        width: 350px;
+        background-color: #efefef;
+        border: none;
+        cursor: pointer;
+        transition: all 0.5s;
+    }
+    
+    .image img {
+        transition: all 0.5s
+    }
+    
+    .card:hover .image img {
+        transform: scale(1.5)
+    }
+    
+    .btn {
+        height: 140px;
+        width: 140px;
+        border-radius: 50%
+    }
+    
+    .name {
+        font-size: 22px;
+        font-weight: bold
+    }
+    
+    .idd {
+        font-size: 14px;
+        font-weight: 600
+    }
+    
+    .idd1 {
+        font-size: 12px
+    }
+    
+    .number {
+        font-size: 22px;
+        font-weight: bold
+    }
+    
+    .follow {
+        font-size: 12px;
+        font-weight: 500;
+        color: #444444
+    }
+    
+    .btn1 {
+        height: 40px;
+        width: 150px;
+        border: none;
+        background-color: #59C1BD;
+        color: #000000;
+        font-size: 15px
+    }
+    .h{
+        font-size: 10vh;
+    }
+ 
+</style>
+<section>
+    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
+        <div class="card p-4"> 
+            <div class=" image d-flex flex-column justify-content-center align-items-center"> 
+                <button class="btn btn-secondary"><i class=" h fa-solid fa-user"></i></button>
+                 <span class="name mt-3">{{user.username}}</span> 
+                 <span class="idd">{{user.email}}</span> 
+                 
+                
+                <div class=" d-flex mt-2"><a href="{{path('modifier_profile',{id:app.user.id})}}"><button class="btn1 btn-dark"> Edit Profile</button> </a>
+                </div> 
+                
+            </div> 
+        </div>
+</div>
+ </section>  
+ 
+
+{% endblock %}

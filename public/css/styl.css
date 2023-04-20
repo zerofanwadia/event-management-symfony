@@ -1,0 +1,212 @@
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    scroll-behavior: smooth; /* bach ila wetiti 3ela services tenta9al lih betari9a smooth*/
+    margin: 0cm;
+    padding: 0cm;
+    box-sizing: border-box; /*bach matzidch safha teharak 3ela liman wela lisar*/
+}
+
+header{
+    background-color: #06283d;
+    width: 100%;
+    position: fixed;        /*kateb9a lhaja fix wakha netala3 la page matemchich*/
+    z-index: 999;           /*bach teb9a lhaja katban hiya fo9 mn ay haja khera*/
+    display: flex;          /* katkhali lhaja tkon f star wahed*/
+    justify-content: space-around; /*katkhali masaaafa bin kola tage(balise)*/
+    align-items: center;    /*katkon lkitaba f center dakhil l2itar (center mabin lfo9 o ltahet)*/
+    padding: 19px 0px;
+    
+    
+    
+}
+#wad img{
+    width: 120px;
+}
+.wadia{
+    color: #ffffff;
+}
+.wadia a{
+    text-decoration: none;
+    font-family:Arial, Helvetica, sans-serif ;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 29px 30px;
+}
+.linpag a:hover{
+    color: #06283d; 
+    background-color: rgba(253, 253, 253, 0.74);
+    transition: 0.8s ease ;
+     
+    
+}
+#wa{
+    text-decoration: none;
+    font-family:Arial, Helvetica, sans-serif ;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 0px 30px;
+}
+#wa:hover{
+    color: #74caff; 
+    background-color: #06283d;
+}
+.dropdown-menu a{
+    color: #06283d;
+    background-color: #ffffff;
+    padding: 12px 12px;
+    text-align: center;
+    transition: 0.8s ease ;
+}
+.dropdown-menu a:hover{
+    color: #74caff; 
+}
+/*_____________________________________________________________________________*/
+
+
+.bac img{
+    position: absolute;
+    width: 100%;
+}
+
+section{
+    padding: 100px 200px;
+}
+.main{
+    position: relative; /*bach teban hiya li lfo9 mn bac img*/
+     /*bach matharakech meli netala3 la page*/
+    padding-top: 200px;
+}
+.main h2{
+    font-size: 23px;
+    color: white;
+}
+.main h2 span{
+    display: inline-block;     /*katkhalina nediro lpadding ila ma darnahach maghadich ikhedam*/
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 80px;
+    padding-top: 20px;
+     
+}
+.my{
+    flex-wrap: wrap;
+}
+
+.main h3{
+    color: white;
+    font-size: 35px;
+    padding: 15px;
+    padding-bottom: 29px;
+}
+
+.for-ro input{
+    float: right;
+    padding: 6px;
+     margin: 8px;
+     font-size: 25px;
+     border: 2px solid #FFE2E2;
+     box-shadow: 0 5px 25px rgba(1 1 1 / 15%);
+     border-radius: 10px;
+} 
+.for-ro{
+    display: flex;
+    justify-content: center;
+}
+section button{
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: 600;
+    color: rgb(2, 2, 2);
+    display: inline-block;
+    background-color: #F6F6F6;
+    padding: 5px 20px;
+    border-radius: 15px;   /*zawiya deyal l2itar matkonch hada*/
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    transition: 0.8s ease ; /*lmoda li ghadi itra fiha tahawol li dart f hover wi kon bisalasa*/
+    margin-top:10px ;
+    
+}
+.row{
+    margin: 300px;
+}
+.comp{
+    margin: 50px;
+}
+.card{
+    margin: 100px;
+}
+/*---------------------------------------------------------------*/
+.main3 h3{
+    text-align: center;
+    color: #59C1BD;
+    font-size: 50px;
+    font-weight: 900;
+    padding-bottom: 25px;
+    font-family: revert;
+    
+}
+
+.main3{
+    
+    background-color: #0D4C92;
+}
+
+.pro{
+    
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.car{
+     width: 368px;
+     border-radius: 10px;
+     border: 4px solid white;
+     margin: 10px;    /*lmasafa mabin kola moraba3*/
+     background-color: #fff;
+     overflow: hidden; /*ay haja kharjat 3ela l2itar (car) matbanch*/
+     transition: 0.8s ease;
+     padding-bottom: 10px;
+     margin: 10px 19px;   
+}
+
+.car:hover{
+    transform: scale(1.07);
+}
+.img img{
+    width: 100%;
+}
+.img:hover{
+    opacity: 0.9;
+}
+.car p{
+    padding-left: 8px;
+}
+
+.nompro b{
+    font-size: 20px;
+    margin: 10px ;
+    margin-right: 100px;
+    color: #FF6B35;
+    font-family: system-ui;
+}
+.nompro a{
+    text-decoration: none;
+    color: #59C1BD;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: 0.8s;
+}
+.nompro a:hover{
+    color:#0d7e92 ;
+}
+.car p{
+    padding: 8px;
+}
+.my-1{
+    margin: 2px 5px;
+}

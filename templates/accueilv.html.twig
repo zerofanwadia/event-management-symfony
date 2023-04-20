@@ -1,0 +1,149 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset('css/styl.css') }}">
+<style>
+  /*  .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }*/
+    .mai2{
+      background-color: #06283d;
+      display: flex;
+    }
+    .bt{
+      background-color: #FF6B35;
+      transition: 0.8s ease ;
+      color: azure;
+    }
+    .bt:hover{
+      transform: scale(1.05);
+      background-color: #e75a27;
+    }
+    .main3{
+      background-color: #06283d;
+    }
+    #recherch{
+      display: flex;
+    }
+    .rows{
+      display: flex;
+      justify-content: center;
+      margin-left: 40px;
+    }
+    .rows .colo{
+      margin: 10px;
+    }
+    .h{
+      margin-top: 30px;
+    }
+    #recherch_Recherche{
+      margin-top: 38px;
+    }
+    .form-label{
+      color: aliceblue;
+    }
+    .form-control{
+      margin-top: 5px;
+    }
+    .col-form-label{
+      color: aliceblue;
+    }
+</style>
+
+<div class="bac">
+    <img src="{{ asset('image/bac.jpg')}}" >
+</div>
+
+<section class="main">
+
+    <div class="my">
+
+        <h2> <span> Bienvenue </span></h2>
+        <h3>sur notre plateforme de gestion des événements </h3>
+        <br>
+    </div>
+</section>
+
+<section class="mai2">
+  <!-- <form>
+    <div class="for-ro">
+      <div class="co">
+        <input type="text" class="for" placeholder="lieu">
+      </div>
+      <div class="co">
+        <input type="date" class="for" placeholder="date">
+      </div>
+      <div class="co">
+        <input type="text" class="for" placeholder="recherche...">
+      </div>
+      <div class="co">
+        <button type="submit" class="bt">Recherche</button>
+      </div>
+    </div>
+  </form>--> 
+  {{ form_start(form) }}
+    <div class="fo">
+        {{ form_errors(form) }}
+    </div>
+
+    <div class="rows">
+        <div class="colo h">
+            {{ form_row(form.titre) }}
+        </div>
+        <div class="colo h">
+          {{ form_row(form.lieu) }}
+      </div>
+        <div class="colo" id="some-custom-id">
+            {{ form_row(form.startDate) }}
+        </div>
+        <div class="colo">
+          {{ form_row(form.endDate) }}
+      </div>
+      <div class="colo wd">
+        {{ form_row(form.Recherche) }}
+    </div>
+      
+    </div>
+{{ form_end(form) }}
+</section> 
+
+<div id="Projects" class="main3">
+    <h3 >Événements</h3>
+  {% if event %}  
+<div class="pro">
+  
+  {% for event in event %}
+  <div class="car">
+    <div class="img">
+    <a href="{{path('show_event',{id:event.id})}}">
+      {% if event.image %}
+          <img src="{{ asset('uploads/'~event.image )}}">
+      {% else %}
+          <img src="{{ asset('image/null.jpg' )}}">
+      {% endif %}  
+    </a> 
+    </div>
+    <h4 class="my-1">{{event.titre}}</h4>
+    <div class="nompro">
+        <b>{{event.date | date("m/d/Y") }} </b>
+         <a href="{{path('app_reserv',{id:event.id})}}">ticket</a>
+    </div>
+  </div>
+  {% endfor %}
+  {% else %} 
+  <div class="alert alert-success">
+    <h5>l'événement n'existe pas</h5>
+ </div>
+  {% endif %} 
+</div>
+
+<div class="d-flex justify-content-center my-3">
+  {% do event.setPageRange(2) %}
+  {{ knp_pagination_render(event, 'apagination.html.twig') }}
+ </div>
+ 
+</div>
+
+
+{% endblock %}
