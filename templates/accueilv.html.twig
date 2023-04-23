@@ -49,6 +49,13 @@
     .col-form-label{
       color: aliceblue;
     }
+    .nompro i{
+      margin: 10px;
+    }
+    .arch{
+      color: red;
+      font-size: 2vh;
+    }
 </style>
 
 <div class="bac">
@@ -127,7 +134,12 @@
     <h4 class="my-1">{{event.titre}}</h4>
     <div class="nompro">
         <b>{{event.date | date("m/d/Y") }} </b>
+        {% if event.isArchived == false %}
          <a href="{{path('app_reserv',{id:event.id})}}">ticket</a>
+         {% else %}
+         <i class="arch" >archivé</i> 
+         {% endif %}
+         <i>{{event.lieu}}</i>
     </div>
   </div>
   {% endfor %}

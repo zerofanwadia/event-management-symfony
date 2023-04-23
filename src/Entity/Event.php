@@ -25,10 +25,6 @@ class Event
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
-    #[ORM\ManyToOne(inversedBy: 'events')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Lieu $lieu = null;
-
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
@@ -41,6 +37,12 @@ class Event
 
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: Clent::class, orphanRemoval: true)]
     private Collection $clents;
+
+    #[ORM\Column(length: 255)]
+    private ?string $lieu = null;
+
+    #[ORM\Column]
+    private ?bool $isArchived = null;
 
     public function __construct()
     {
@@ -77,6 +79,11 @@ class Event
         return $this;
     }
 
+    public function isArchived(): bool
+    {
+        return $this->isArchived || $this->date<new \DateTime();
+    }
+
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
@@ -85,18 +92,6 @@ class Event
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
-
-        return $this;
-    }
-
-    public function getLieu(): ?Lieu
-    {
-        return $this->lieu;
-    }
-
-    public function setLieu(?Lieu $lieu): self
-    {
-        $this->lieu = $lieu;
 
         return $this;
     }
@@ -184,5 +179,28 @@ class Event
 
         return $this;
     }
-    
+
+    public function getLieu(): ?string
+    {
+        return $this->lieu;
+    }
+
+    public function setLieu(string $lieu): self
+    {
+        $this->lieu = $lieu;
+
+        return $this;
+    }
+
+    public function isIsArchived(): ?bool
+    {
+        return $this->isArchived;
+    }
+
+    public function setIsArchived(bool $isArchived): self
+    {
+        $this->isArchived = $isArchived;
+
+        return $this;
+    }
 }

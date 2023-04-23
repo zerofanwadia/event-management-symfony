@@ -5,11 +5,13 @@ namespace App\Controller;
 use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\EventRepository;
+
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Validator\Constraints\Date;
 
 class EventController extends AbstractController
 {
@@ -74,11 +76,13 @@ class EventController extends AbstractController
 
     public function Vos_événement(): Response
     {
+
+        $tarikh = date("m/d/Y");
     if (!$this->getUser()) {
         return $this->redirectToRoute('app_login');
     }
         return $this->render('utilisateure/vosev.html.twig',[
-            "user"=>$this->getUser(),
+            "user"=>$this->getUser(), "tarikh" => $tarikh
         ]);
     }
 
@@ -116,19 +120,17 @@ class EventController extends AbstractController
         ]);
     }
 
-    #[Route('/Vos_événement/delet/{id}', name:'vos_event_delet')]
+    #[Route('/Vos_événement/archivé/{id}', name:'vos_event_delet')]
 
     public function deletElement(Event $event):Response
     {
 
+            $event->setIsArchived(true);
             
-            $this->entityManager->remove($event);
+            $this->entityManager->persist($event);
             $this->entityManager->flush();
 
-            $this->addFlash(
-                'notice',
-                'LA SUPPRITION EST SUCCESS'
-            );
+           
             return $this->redirectToRoute('vos_event');
         
 

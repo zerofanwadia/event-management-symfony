@@ -44,19 +44,32 @@ class EventRepository extends ServiceEntityRepository
      * @return Event[] Returns an array of Event objects
     */
 
-    public function findByFilter(EventFiltrer $eventFilter)
-{   $queryBuilder=$this->createQueryBuilder('p');
-    if($eventFilter->getTitre()){
-        $queryBuilder->where('p.titre LIKE :nom')
-        ->setParameter('nom', '%'.$eventFilter->getTitre().'%');
+    public function findByFilter(EventFiltrer $eventFilter) {
+        $queryBuilder=$this->createQueryBuilder('e');
 
+        if($eventFilter->getTitre()){
+            $queryBuilder=$queryBuilder
+                ->andWhere('e.titre LIKE :nom')
+                ->setParameter('nom', '%'.$eventFilter->getTitre().'%');
+        }
+        if($eventFilter->getLieu()) {
+            $queryBuilder=$queryBuilder
+                ->andWhere('e.lieu LIKE :lieu')
+                ->setParameter('lieu', '%'.$eventFilter->getLieu().'%');
+        }
+        if($eventFilter->getStartDate()) {
+            $queryBuilder=$queryBuilder
+                ->andWhere("e.date >= :start_date")
+                ->setParameter('start_date', $eventFilter->getStartDate()->format('Y-m-d 00:00:00'));
+        }
+        if($eventFilter->getEndDate()) {
+            $queryBuilder=$queryBuilder
+                ->andWhere("e.date <= :end_date")
+                ->setParameter('end_date', $eventFilter->getEndDate()->format('Y-m-d 00:00:00'));
+        }
+    
+        return $queryBuilder->getQuery()->getResult();            
     }
-    return $queryBuilder->getQuery()
-    ->getResult();
-        
-
-        
-}
 //    public function findByExampleField($value): array
 //    {
 //        return $this->createQueryBuilder('e')

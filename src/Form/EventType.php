@@ -2,7 +2,6 @@
 
 namespace App\Form;
 
-use App\Entity\Lieu;
 use App\Entity\Event;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,11 +18,13 @@ class EventType extends AbstractType
             ->add('titre')
             ->add('description')
             ->add('date')
+            ->add('lieu', null, [
+                "attr" => ["class" => "event-lieu-input"]
+            ])
             ->add('image', FileType::class,[
                 'required'=>false,
                 'mapped'=>false
             ])
-            ->add('lieu',EntityType::class,['class'=>Lieu::class])
             ->add('Valider', SubmitType::class)
         ;
     }

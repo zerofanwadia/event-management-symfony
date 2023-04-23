@@ -13,6 +13,14 @@
   .di {
     position: relative;
   }
+  .ss{
+    color: rgb(61, 71, 71);
+    font-size: 3vh;
+    margin: 1vh;
+  }
+  .bth{
+    text-align: center;
+  }
 </style>
     <div class="di">
         h
@@ -32,6 +40,7 @@
                     </thead>
                     <tbody>
                         {% for event in user.events %}
+                        
                      <tr>
                         <th scope="row">{{event.titre}}</th>
                         <td> {{event.lieu}} </td>
@@ -44,15 +53,17 @@
                             <img src="{{ asset('image/null.jpg' )}}" width="60" height="60">
                             {% endif %}
                          </td>
-                        <td>
-                          <button class="btn btn-primary my-2"> <a class="hhh" href="{{path('show_event',{id:event.id})}}">vieux</a></button>
-                          <button class="btn btn-primary my-2"><a class="hhh" href="{{path('vos_event_edite',{id:event.id})}}">modifier</a></button>
-                          <button class="btn btn-primary my-2"><a class="hhh" href="{{path('vos_event_delet',{id:event.id})}}">supprimer</a></button>
+                        <td class="bth">
+                          <a class="hhh" href="{{path('show_event',{id:event.id})}}"><i class="ss fa-regular fa-eye"></i></a>
+                          {% if event.isArchived == false %}
+                          <a class="hhh" href="{{path('vos_event_edite',{id:event.id})}}"><i class="ss fa-solid fa-pen-to-square"></i></a>
+                          <a class="hhh" href="{{path('vos_event_delet',{id:event.id})}}"><i class="ss fa-sharp fa-solid fa-trash"></i></a>
+                          {% endif %}
                         </td>
                       </tr>
                      {% endfor %}
                     </tbody>
-                  </table>  
+                  </table>     
             </div>
         </div>
       </div>
