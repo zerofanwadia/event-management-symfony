@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Event;
+use App\Form\CommentType;
 use App\Form\EventType;
 use App\Repository\EventRepository;
 
@@ -22,7 +24,7 @@ class EventController extends AbstractController
         $this->eventRepository=$eventRepository;
         $this->entityManager = $doctrine->getManager();
     }
-
+/*--------------------------------------------------------------- */
 
     #[Route('/event', name: 'app_event')]
     public function event(Request $request): Response
@@ -57,20 +59,44 @@ class EventController extends AbstractController
         ]);
     }
 
+    /*--------------------------------------------------------------- */
+
     #[Route('/event/{id}', name: 'show_event')]
 
-    public function aficheevent($id): Response
+    public function aficheevent($id,Request $request): Response
     {
-         $event=$this->eventRepository->find($id);
-    if (!$event) {
-        throw $this->createNotFoundException(
-            'No product found for id '.$id
-        );
-    }
-        return $this->render('showev.html.twig',[
-            "event"=>$event
+        $event=$this->eventRepository->find($id);
+            if (!$event) {
+                throw $this->createNotFoundException(
+                    'No product found for id '.$id
+                );
+            }
+
+        $comment=new Comment;
+        
+        $form=$this->createForm(CommentType::class,$comment);
+        $form->handleRequest($request); 
+        if($form->isSubmitted() && $form->isValid()){
+            $comment=$form->getData();
+            $comment->setUser($this->getUser());
+            $comment->setEvent($event);
+        
+            $this->entityManager->persist($comment);
+            $this->entityManager->flush();
+
+            $this->addFlash(
+                'success',
+                'L\'événement a été ajouter'
+            );
+            return $this->redirectToRoute('app_first');
+        }
+
+        return $this->renderForm('showev.html.twig',[
+            "event"=>$event,'form' => $form,
         ]);
     }
+
+    /*--------------------------------------------------------------- */
 
     #[Route('/Vos_événement', name:'vos_event')]
 
@@ -85,6 +111,8 @@ class EventController extends AbstractController
             "user"=>$this->getUser(), "tarikh" => $tarikh
         ]);
     }
+
+    /*--------------------------------------------------------------- */
 
     #[Route('/Vos_événement/edite/{id}', name:'vos_event_edite')]
 
@@ -119,6 +147,8 @@ class EventController extends AbstractController
             'form' => $form,
         ]);
     }
+
+    /*--------------------------------------------------------------- */
 
     #[Route('/Vos_événement/archivé/{id}', name:'vos_event_delet')]
 
