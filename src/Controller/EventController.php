@@ -7,7 +7,7 @@ use App\Entity\Event;
 use App\Form\CommentType;
 use App\Form\EventType;
 use App\Repository\EventRepository;
-
+use App\Security\Voter\EventVoter;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,7 +34,7 @@ class EventController extends AbstractController
         }
         $event= new Event();
         $event->setUser($this->getUser());
-
+        $event->setIsArchived(false);
         $form=$this->createForm(EventType::class,$event);
         $form->handleRequest($request); 
         if($form->isSubmitted() && $form->isValid()){
@@ -62,9 +62,12 @@ class EventController extends AbstractController
     /*--------------------------------------------------------------- */
 
     #[Route('/event/{id}', name: 'show_event')]
-
     public function aficheevent($id,Request $request): Response
     {
+        if(!$this->getUser()){
+            return $this->redirectToRoute('app_login');
+        }
+
         $event=$this->eventRepository->find($id);
             if (!$event) {
                 throw $this->createNotFoundException(
@@ -76,7 +79,10 @@ class EventController extends AbstractController
         
         $form=$this->createForm(CommentType::class,$comment);
         $form->handleRequest($request); 
-        if($form->isSubmitted() && $form->isValid()){
+        if($form->isSubmitted() && $form->isValid() ){
+            if(!$this->getUser()){
+                return $this->redirectToRoute('app_login');
+            }
             $comment=$form->getData();
             $comment->setUser($this->getUser());
             $comment->setEvent($event);
@@ -88,7 +94,9 @@ class EventController extends AbstractController
                 'success',
                 'L\'événement a été ajouter'
             );
-            return $this->redirectToRoute('app_first');
+            return $this->renderForm('showev.html.twig',[
+                "event"=>$event,'form' => $form,
+            ]);
         }
 
         return $this->renderForm('showev.html.twig',[
@@ -102,13 +110,11 @@ class EventController extends AbstractController
 
     public function Vos_événement(): Response
     {
-
-        $tarikh = date("m/d/Y");
-    if (!$this->getUser()) {
-        return $this->redirectToRoute('app_login');
-    }
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
         return $this->render('utilisateure/vosev.html.twig',[
-            "user"=>$this->getUser(), "tarikh" => $tarikh
+            "user"=>$this->getUser()
         ]);
     }
 
@@ -121,6 +127,7 @@ class EventController extends AbstractController
         if(!$this->getUser()){
             return $this->redirectToRoute('app_login');
         }
+        $this->denyAccessUnlessGranted(EventVoter::EDIT, $event);
         
         $event->setUser($this->getUser());
 
@@ -154,16 +161,19 @@ class EventController extends AbstractController
 
     public function deletElement(Event $event):Response
     {
+        if(!$this->getUser()){
+            return $this->redirectToRoute('app_login');
+        }
 
-            $event->setIsArchived(true);
-            
-            $this->entityManager->persist($event);
-            $this->entityManager->flush();
+        $this->denyAccessUnlessGranted(EventVoter::ARCHIVE, $event);
 
-           
-            return $this->redirectToRoute('vos_event');
+        $event->setIsArchived(true);
         
+        $this->entityManager->persist($event);
+        $this->entityManager->flush();
 
+        
+        return $this->redirectToRoute('vos_event');
     }
     
 

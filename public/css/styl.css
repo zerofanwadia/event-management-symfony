@@ -84,7 +84,7 @@ section{
 }
 .main h2 span{
     display: inline-block;     /*katkhalina nediro lpadding ila ma darnahach maghadich ikhedam*/
-    color: #ffffff;
+    color: #000;
     font-weight: 900;
     font-size: 80px;
     padding-top: 20px;
@@ -152,13 +152,6 @@ section button{
 .main3{
     
     background-color: #0D4C92;
-}
-
-.pro{
-    
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
 }
 
 .car{

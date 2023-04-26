@@ -3,567 +3,16 @@
 
 {% block title %}{{event.titre}}{% endblock %}
 {% block stylesheets %}
-  <link rel="stylesheet" href="{{ asset('css/showev.css') }}">
+  
 {% endblock %}
 {% block body %}
+<link rel="stylesheet" href="{{ asset('css/showev.css') }}">
 <style>
-    *{
-        
-        box-sizing: border-box;
-    }
-    body{
-        background: url(wa.jpg) no-repeat;
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-    }
-   .row{
-    position: absolute;
-    margin: 100px 20px;
-    
-    
-    justify-content: center;
-   } 
-   .card-title{
-    text-align: center;
-   }
-    .fa img{
-    justify-content: left;
-    text-align: left;
-    width: 800px;
-    
-    border-radius: 5px;
-   }
-   .fa{
-    display: flex;
-   }
-   .card-text{
-    font-size: 20px;
-    text-align: left;
-    margin: 30px 10px;
-   }
-   .card-date{
-    margin: 30px;
-    font-size: 30px;
-    color: #FF6B35;
-    font-family: system-ui;
-   }
-   .card-tit{
-    margin: 20px;
-    font-size: 60px;
-    
-   }
-   /*---------------------------------------------------*/
-   body{
-    background:#f5f5f5;
-    }
-/*------- portfolio -------*/
-.project {
-  margin: 15px 0;
-}
-
-.no-gutter .project {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.has-spacer {
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-bottom: 30px;
-}
-
-.has-spacer-extra-space {
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-bottom: 30px;
-}
-
-.has-side-spacer {
-  margin-left: 30px;
-  margin-right: 30px;
-}
-
-.project-title {
-  font-size: 1.25rem;
-}
-
-.project-skill {
-  font-size: 0.9rem;
-  font-weight: 400;
-  letter-spacing: 0.06rem;
-}
-
-.project-info-box {
-  margin: 15px 0;
-  background-color: #fff;
-  padding: 30px 40px;
-  border-radius: 5px;
-}
-
-.project-info-box p {
-  margin-bottom: 15px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #d5dadb;
-}
-
-.project-info-box p:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: none;
-}
-img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    -webkit-backface-visibility: hidden;
-}
-.rounded {
-    border-radius: 5px !important;
-}
-.btn-xs.btn-icon {
-    width: 34px;
-    height: 34px;
-    max-width: 34px !important;
-    max-height: 34px !important;
-    font-size: 10px;
-    line-height: 34px;
-}
-/* facebook button */
-.btn-facebook, .btn-facebook:active, .btn-facebook:focus {
-  color: #fff !important;
-  background: #4e68a1;
-  border: 2px solid #4e68a1;
-}
-
-.btn-facebook:hover {
-  color: #fff !important;
-  background: #3b4f7a;
-  border: 2px solid #3b4f7a;
-}
-
-.btn-facebook-link, .btn-facebook-link:active, .btn-facebook-link:focus {
-  color: #4e68a1 !important;
-  background: transparent;
-  border: none;
-}
-
-.btn-facebook-link:hover {
-  color: #3b4f7a !important;
-}
-
-.btn-outline-facebook, .btn-outline-facebook:active, .btn-outline-facebook:focus {
-  color: #4e68a1 !important;
-  background: transparent;
-  border: 2px solid #4e68a1;
-}
-
-.btn-outline-facebook:hover {
-  color: #fff !important;
-  background: #4e68a1;
-  border: 2px solid #4e68a1;
-}
-
-/* twitter button */
-.btn-twitter, .btn-twitter:active, .btn-twitter:focus {
-  color: #fff !important;
-  background: #65b5f2;
-  border: 2px solid #65b5f2;
-}
-
-.btn-twitter:hover {
-  color: #fff !important;
-  background: #5294c6;
-  border: 2px solid #5294c6;
-}
-
-.btn-twitter:hover {
-  color: #fff !important;
-  background: #5294c6;
-  border: 2px solid #5294c6;
-}
-
-.btn-twitter-link, .btn-twitter-link:active, .btn-twitter-link:focus {
-  color: #65b5f2 !important;
-  background: transparent;
-  border: none;
-}
-
-.btn-twitter-link:hover {
-  color: #5294c6 !important;
-}
-
-.btn-outline-twitter, .btn-outline-twitter:active, .btn-outline-twitter:focus {
-  color: #65b5f2 !important;
-  background: transparent;
-  border: 2px solid #65b5f2;
-}
-
-.btn-outline-twitter:hover {
-  color: #fff !important;
-  background: #65b5f2;
-  border: 2px solid #65b5f2;
-}
-
-/* google button */
-.btn-google, .btn-google:active, .btn-google:focus {
-  color: #fff !important;
-  background: #e05d4b;
-  border: 2px solid #e05d4b;
-}
-
-.btn-google:hover {
-  color: #fff !important;
-  background: #b94c3d;
-  border: 2px solid #b94c3d;
-}
-
-.btn-google-link, .btn-google-link:active, .btn-google-link:focus {
-  color: #e05d4b !important;
-  background: transparent;
-  border: none;
-}
-
-.btn-google-link:hover {
-  color: #b94c3d !important;
-}
-
-.btn-outline-google, .btn-outline-google:active, .btn-outline-google:focus {
-  color: #e05d4b !important;
-  background: transparent;
-  border: 2px solid #e05d4b;
-}
-
-.btn-outline-google:hover {
-  color: #fff !important;
-  background: #e05d4b;
-  border: 2px solid #e05d4b;
-}
-
-/* linkedin button */
-.btn-linkedin, .btn-linkedin:active, .btn-linkedin:focus {
-  color: #fff !important;
-  background: #2083bc;
-  border: 2px solid #2083bc;
-}
-
-.btn-linkedin:hover {
-  color: #fff !important;
-  background: #186592;
-  border: 2px solid #186592;
-}
-
-.btn-linkedin-link, .btn-linkedin-link:active, .btn-linkedin-link:focus {
-  color: #2083bc !important;
-  background: transparent;
-  border: none;
-}
-
-.btn-linkedin-link:hover {
-  color: #186592 !important;
-}
-
-.btn-outline-linkedin, .btn-outline-linkedin:active, .btn-outline-linkedin:focus {
-  color: #2083bc !important;
-  background: transparent;
-  border: 2px solid #2083bc;
-}
-
-.btn-outline-linkedin:hover {
-  color: #fff !important;
-  background: #2083bc;
-  border: 2px solid #2083bc;
-}
-
-/* pinterest button */
-.btn-pinterest, .btn-pinterest:active, .btn-pinterest:focus {
-  color: #fff !important;
-  background: #d2373b;
-  border: 2px solid #d2373b;
-}
-
-.btn-pinterest:hover {
-  color: #fff !important;
-  background: #ad2c2f;
-  border: 2px solid #ad2c2f;
-}
-
-.btn-pinterest-link, .btn-pinterest-link:active, .btn-pinterest-link:focus {
-  color: #d2373b !important;
-  background: transparent;
-  border: none;
-}
-
-.btn-pinterest-link:hover {
-  color: #ad2c2f !important;
-}
-
-.btn-outline-pinterest, .btn-outline-pinterest:active, .btn-outline-pinterest:focus {
-  color: #d2373b !important;
-  background: transparent;
-  border: 2px solid #d2373b;
-}
-
-.btn-outline-pinterest:hover {
-  color: #fff !important;
-  background: #d2373b;
-  border: 2px solid #d2373b;
-}
-
-/* dribble button */
-.btn-dribbble, .btn-dribbble:active, .btn-dribbble:focus {
-  color: #fff !important;
-  background: #ec5f94;
-  border: 2px solid #ec5f94;
-}
-
-.btn-dribbble:hover {
-  color: #fff !important;
-  background: #b4446e;
-  border: 2px solid #b4446e;
-}
-
-.btn-dribbble-link, .btn-dribbble-link:active, .btn-dribbble-link:focus {
-  color: #ec5f94 !important;
-  background: transparent;
-  border: none;
-}
-
-.btn-dribbble-link:hover {
-  color: #b4446e !important;
-}
-
-.btn-outline-dribbble, .btn-outline-dribbble:active, .btn-outline-dribbble:focus {
-  color: #ec5f94 !important;
-  background: transparent;
-  border: 2px solid #ec5f94;
-}
-
-.btn-outline-dribbble:hover {
-  color: #fff !important;
-  background: #ec5f94;
-  border: 2px solid #ec5f94;
-}
-
-/* instagram button */
-.btn-instagram, .btn-instagram:active, .btn-instagram:focus {
-  color: #fff !important;
-  background: #4c5fd7;
-  border: 2px solid #4c5fd7;
-}
-
-.btn-instagram:hover {
-  color: #fff !important;
-  background: #4252ba;
-  border: 2px solid #4252ba;
-}
-
-.btn-instagram-link, .btn-instagram-link:active, .btn-instagram-link:focus {
-  color: #4c5fd7 !important;
-  background: transparent;
-  border: none;
-}
-
-.btn-instagram-link:hover {
-  color: #4252ba !important;
-}
-
-.btn-outline-instagram, .btn-outline-instagram:active, .btn-outline-instagram:focus {
-  color: #4c5fd7 !important;
-  background: transparent;
-  border: 2px solid #4c5fd7;
-}
-
-.btn-outline-instagram:hover {
-  color: #fff !important;
-  background: #4c5fd7;
-  border: 2px solid #4c5fd7;
-}
-
-/* youtube button */
-.btn-youtube, .btn-youtube:active, .btn-youtube:focus {
-  color: #fff !important;
-  background: #e52d27;
-  border: 2px solid #e52d27;
-}
-
-.btn-youtube:hover {
-  color: #fff !important;
-  background: #b31217;
-  border: 2px solid #b31217;
-}
-
-.btn-youtube-link, .btn-youtube-link:active, .btn-youtube-link:focus {
-  color: #e52d27 !important;
-  background: transparent;
-  border: none;
-}
-
-.btn-youtube-link:hover {
-  color: #b31217 !important;
-}
-
-.btn-outline-youtube, .btn-outline-youtube:active, .btn-outline-youtube:focus {
-  color: #e52d27 !important;
-  background: transparent;
-  border: 2px solid #e52d27;
-}
-
-.btn-outline-youtube:hover {
-  color: #fff !important;
-  background: #e52d27;
-  border: 2px solid #e52d27;
-}
-.btn-xs.btn-icon span, .btn-xs.btn-icon i {
-    line-height: 34px;
-}
-.btn-icon.btn-circle span, .btn-icon.btn-circle i {
-    margin-top: -1px;
-    margin-right: -1px;
-}
-.btn-icon i {
-    margin-top: -1px;
-}
-.btn-icon span, .btn-icon i {
-    display: block;
-    line-height: 50px;
-}
-a.btn, a.btn-social {
-    display: inline-block;
-}
-.mr-5 {
-    margin-right: 5px !important;
-}
-.mb-0 {
-    margin-bottom: 0 !important;
-}
-.btn-facebook, .btn-facebook:active, .btn-facebook:focus {
-    color: #fff !important;
-    background: #4e68a1;
-    border: 2px solid #4e68a1;
-}
-.btn-circle {
-    border-radius: 50% !important;
-}
-.project-info-box p {
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #d5dadb;
-}
-p {
-    font-family: "Barlow", sans-serif !important;
-    font-weight: 300;
-    font-size: 1rem;
-    color: #686c6d;
-    letter-spacing: 0.03rem;
-    margin-bottom: 10px;
-}
-b, strong {
-    font-weight: 700 !important;
-}
-.btn1 {
-    height: 40px;
-    width: 150px;
-    border: none;
-    background-color: #59C1BD;
-    color: #000000;
-    font-size: 15px;
-    border-radius: 6px;
-}
-.break-white-space{
-  white-space: pre;
-}
-.arch{
-  color: red;
-  font-size: 2vh;
-}
-   
-.hhh{
-  text-decoration: none;
-  color: antiquewhite;
-}
-.di {
-position: relative;
-}
-body{
-
-background:#eee;
-}
-.card {
-box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
-}
-.card {
-position: relative;
-display: flex;
-flex-direction: column;
-min-width: 0;
-word-wrap: break-word;
-background-color: #fff;
-background-clip: border-box;
-border: 0 solid rgba(0,0,0,.125);
-border-radius: 1rem;
-}
-.bgc-h-secondary-l3:hover, .bgc-secondary-l3 {
-background-color: #ebeff1!important;
-}
-.h-4 {
-height: 2rem;
-}
-.w-4 {
-width: 2rem;
-}
-.d-zoom-1, .d-zoom-2, .d-zoom-3, .dh-zoom-1, .dh-zoom-2, .dh-zoom-3 {
-transition: -webkit-transform 180ms;
-transition: transform 180ms;
-transition: transform 180ms,-webkit-transform 180ms;
-}
-.mr-25, .mx-25 {
-margin-right: .75rem!important;
-}
-
-.p-25 {
-padding: .75rem!important;
-}
-.radius-1 {
-border-radius: .25rem!important;
-}
-[class*=bgc-h-] {
-transition: background-color .15s;
-}
-
-.text-default-d3 {
-color: #416578!important;
-}
-.font-bolder, .text-600 {
-font-weight: 600!important;
-}
-.text-90 {
-font-size: .9em!important;
-}
-
-
-.bgc-h-secondary-l4:hover, .bgc-secondary-l4 {
-background-color: #f2f4f6!important;
-}
-.text-danger-m1 {
-color: #da3636!important;
-}
-.text-green-m1 {
-color: #2c8d6a!important;
-}
-.text-95 {
-font-size: .95em!important;
-}
-.containe{
-justify-content: center;
-text-align: center;
-margin: 5% 10%;
-}
-.h{}
+  
 </style>
     
-     <div class="row">
-     <!--   <div class="fa">
+  <!--   <div class="row">
+        <div class="fa">
             {% if event.image %}
                 <img src="{{ asset('uploads/'~event.image )}}">
             {% else %}
@@ -580,64 +29,83 @@ margin: 5% 10%;
         </div>
                     <div class="card-text">
                         {{event.description}}
-                    </div>--> 
-      </div>
+                    </div>
+      </div>--> 
       <div class="row">.
       </div>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 <div class="container">
-    <div class="row">
+    <div class="row w-100">
         <div class="col-md-4">
-           
-            <div class="project-info-box">
-                <p><b>{{event.titre}}</b></p>
-                <p><b>Date:</b> {{event.date | date("m/d/Y") }}</p>
-                <p><b>lieu:</b> {{event.lieu}}</p>
+            <div class="project-info-box border border p-0">
+                <div class="card-header p-3 special-bg-color">
+                    <h5 class="card-title mb-2 mb-md-0 text-dark-m3">
+                      Aperçu
+                    </h5>
+                </div>
+                <div class="p-3">
+                  <p><b>{{event.titre}}</b></p>
+                  <p><b>Date:</b> {{event.date | date("m/d/Y") }}</p>
+                  <p><b>lieu:</b> {{event.lieu}}</p>
+                </div>
                <!-- <p><b>Tools:</b> Illustrator</p>
                 <p class="mb-0"><b>Budget:</b> $500</p> -->
             </div> <!-- / project-info-box-->
 
-             <div class="project-info-box mt-0">
-                <h5>DESCRIPTION</h5>
-                <p class="mb-0 break-white-space">{{event.description}}</p>
+             <div class="project-info-box border border mt-0 p-0">
+                <div class="card-header p-3 special-bg-color">
+                    <h5 class="card-title mb-2 mb-md-0 text-dark-m3">
+                      Description
+                    </h5>
+                </div>
+                <div class="p-3">
+                  <p class=" mb-0 break-white-space">{{event.description}}</p>
+                </div>
             </div>
-            
+            {% if app.user %}
             {% if app.user.id == event.user.id %}
-              <div class="project-info-box mt-0">
-                <div class="card-header pb-3 brc-secondary-l3">
+              <div class="project-info-box border border mt-0 p-0">
+                <div class="card-header p-3 special-bg-color">
                     <h5 class="card-title mb-2 mb-md-0 text-dark-m3">
                       Clients
                     </h5>
                 </div>
                 <ul>
                   {% for client in event.clents %}
-                    <li class="p-2 text-dark-l2 text-nowrap" style="list-style: none;">
+                    <li class="p-3 text-dark-l2 text-nowrap" style="list-style: none;">
                       {{client.username}}  | {{client.email}}
                     </li>
                   {% endfor %}
                 </ul>
               </div>
             {% endif %}
+            {% endif %}
         </div>
 
         <div class="col-md-8">
-            {% if event.image %}
-                <img src="{{ asset('uploads/'~event.image )}}" alt="project-image" class="rounded">
-            {% else %}
-                <img src="{{ asset('image/null.jpg' )}}" alt="project-image" class="rounded">
-            {% endif %}
-            <div class="project-info-box">
-                <p>
-                  {% if event.isArchived == false %}
-                  <a href="{{path('app_reserv',{id:event.id})}}"><button class="btn1 btn-dark">ticket</button></a>
-                    {% else %}
-                    <i class="arch" >archivé</i> 
-                  {% endif %}
-                  
-                </p>
+            <div
+              style="
+                width: 100%; padding-top: 56%;
+                background-image: url('{{event.image ? asset("uploads/"~event.image) : asset('image/null.jpg' ) }}');
+                background-size: cover; background-position: center;
+              "
+            ></div>
+            <div class="project-info-box border">
+              {% if event.isArchived == false %}
+                {% if app.user == event.user %}
+                  <p>
+                    <a class="fs-4 me-2" href="{{path('vos_event_edite',{id:event.id})}}"><i class="text-primary fa-solid fa-pen-to-square"></i></a>
+                    <a class="fs-4" href="{{path('vos_event_delet',{id:event.id})}}"><i class="text-danger fa-sharp fa-solid fa-trash"></i></a>
+                  </p>
+                {% else %}
+                  <p><a href="{{path('app_reserv',{id:event.id})}}"><button class="btn1 btn-dark">ticket</button></a></p>
+                {% endif %}
+              {% else %}
+                <i class="arch" >archivé</i> 
+              {% endif %}
                 
             </div>
-            <div class="project-info-box">
+            <div class="project-info-box border">
             {{ form_start(form) }}
               <div class="fo">
                   {{ form_errors(form) }}

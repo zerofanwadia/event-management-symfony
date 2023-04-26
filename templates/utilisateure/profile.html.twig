@@ -3,17 +3,9 @@
 {% block title %}Profile{% endblock %}
 
 {% block body %}
-<link rel="stylesheet" href="{{ asset('css/styl.css') }}">
+{# <link rel="stylesheet" href="{{ asset('css/styl.css') }}"> #}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
-    * {
-        margin: 0;
-        padding: 0
-    }
-    
-    body {
-        background-color: #000
-    }
     
     .card {
         width: 350px;
@@ -47,10 +39,6 @@
         font-weight: 600
     }
     
-    .idd1 {
-        font-size: 12px
-    }
-    
     .number {
         font-size: 22px;
         font-weight: bold
@@ -75,22 +63,18 @@
     }
  
 </style>
-<section>
-    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
-        <div class="card p-4"> 
-            <div class=" image d-flex flex-column justify-content-center align-items-center"> 
-                <button class="btn btn-secondary"><i class=" h fa-solid fa-user"></i></button>
-                 <span class="name mt-3">{{user.username}}</span> 
-                 <span class="idd">{{user.email}}</span> 
-                 
-                
-                <div class=" d-flex mt-2"><a href="{{path('modifier_profile',{id:app.user.id})}}"><button class="btn1 btn-dark"> Edit Profile</button> </a>
-                </div> 
-                
+<section class="p-5 min-height-full d-flex justify-content-center align-items-center"> 
+    <div class="card p-5"> 
+        <div class=" image d-flex flex-column justify-content-center align-items-center"> 
+            <button class="btn btn-secondary"><i class=" h fa-solid fa-user"></i></button>
+            <span class="name mt-3 mb-1">{{user.username}}</span> 
+            <span class="idd">{{user.email}}</span> 
+            <div class=" d-flex mt-4">
+                <a href="{{path('modifier_profile',{id:app.user.id})}}"><button class="btn1 btn-dark"> Edit Profile</button> </a>
             </div> 
-        </div>
-</div>
- </section>  
+        </div> 
+    </div>
+</section>  
  
 
 {% endblock %}

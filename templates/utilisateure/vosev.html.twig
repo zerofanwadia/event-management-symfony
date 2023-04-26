@@ -3,69 +3,14 @@
 {% block title %}Vos événements{% endblock %}
 
 {% block body %}
+  
+<section class="container py-5">
+  <h3 class="fs-1 text-center text-bold mt-2 mb-5">Vos événements</h3>
+  <div class="events-container">
+    {% for event in user.events %}
+      {% include "components/event-card.html.twig" with {'event': event } %}
+    {% endfor %}
+  </div>
+</section>
 
-<style>
-   
- .hhh{
-      text-decoration: none;
-      color: antiquewhite;
-  }
-  .di {
-    position: relative;
-  }
-  .ss{
-    color: rgb(61, 71, 71);
-    font-size: 3vh;
-    margin: 1vh;
-  }
-  .bth{
-    text-align: center;
-  }
-</style>
-    <div class="di">
-        h
-    </div>
-      <div class="row my-5">
-        <div class="col-md-8 mx-auto">
-            <div class="card">
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Titre</th>
-                        <th scope="col">Lieu</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Image</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        {% for event in user.events %}
-                        
-                     <tr>
-                        <th scope="row">{{event.titre}}</th>
-                        <td> {{event.lieu}} </td>
-                        <td> {{event.date | date("m/d/Y") }} </td>
-                        
-                        <td> 
-                            {% if event.image %}
-                            <img src="{{ asset('uploads/'~event.image )}}" width="60" height="60">
-                            {% else %}
-                            <img src="{{ asset('image/null.jpg' )}}" width="60" height="60">
-                            {% endif %}
-                         </td>
-                        <td class="bth">
-                          <a class="hhh" href="{{path('show_event',{id:event.id})}}"><i class="ss fa-regular fa-eye"></i></a>
-                          {% if event.isArchived == false %}
-                          <a class="hhh" href="{{path('vos_event_edite',{id:event.id})}}"><i class="ss fa-solid fa-pen-to-square"></i></a>
-                          <a class="hhh" href="{{path('vos_event_delet',{id:event.id})}}"><i class="ss fa-sharp fa-solid fa-trash"></i></a>
-                          {% endif %}
-                        </td>
-                      </tr>
-                     {% endfor %}
-                    </tbody>
-                  </table>     
-            </div>
-        </div>
-      </div>
-    
 {% endblock %}

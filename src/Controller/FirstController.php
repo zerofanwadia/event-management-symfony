@@ -49,12 +49,13 @@ class FirstController extends AbstractController
 
     public function Profile():Response
     {
+        if(!$this->getUser()){
+            return $this->redirectToRoute('app_login');
+        }
 
-            return $this->render('utilisateure/profile.html.twig', [
-                'user' => $this->getUser(),
-            ]);
-        
-
+        return $this->render('utilisateure/profile.html.twig', [
+            'user' => $this->getUser(),
+        ]);
     }
 
 }

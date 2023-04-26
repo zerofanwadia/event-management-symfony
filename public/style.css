@@ -1,0 +1,34 @@
+.events-container {
+  gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+.event-card{
+     width: 368px;
+     border-radius: 10px;
+     border: 4px solid white;
+     margin: 10px;    /*lmasafa mabin kola moraba3*/
+     background-color: #fff;
+     overflow: hidden; /*ay haja kharjat 3ela l2itar (car) matbanch*/
+     transition: 0.8s ease;
+     padding-bottom: 10px;
+     max-width: 500px;
+}
+
+.event-card:hover{
+    transform: scale(1.05);
+}
+
+.special-bg-color {
+  background-color: #dde!important;
+}
+
+.min-height-full {
+  min-height: calc(100vh - 75px);
+}
+
+.search-input {
+  border-radius: 0!important;
+  outline: none!important;
+  box-shadow: none!important;
+}

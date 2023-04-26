@@ -1,0 +1,74 @@
+
+
+<div style="height: 75px; background-color: #06283d; width: 100%;"></div>
+
+<div style="background-color: #06283d; position: fixed; top: 0; width: 100%; z-index: 1000;">
+    <nav class="navbar navbar-expand-lg navbar-dark mx-5 " style="background-color: #06283d;">
+        <div style="height: 59px; display: flex; align-items:center;">
+            <a class="navbar-brand" href="{{path('app_first')}}">
+                <img src="{{ asset('image/logo.png')}}" height="34" alt="LOGO">
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            {# <div class="me-auto"></div> #}
+            <ul class="navbar-nav ms-auto my-4 my-lg-0 gap-3 me-5">
+                {% if app.user %}
+                <li class="nav-item">
+                    <a
+                        class="nav-link {% if app.request.get('_route') == 'app_first' %} active {% endif %}"
+                        href="{{path('app_first')}}"
+                    >Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link {% if app.request.get('_route') == 'app_event' %} active {% endif %}"
+                        href="{{path('app_event')}}"
+                    >Créer un événement</a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link {% if app.request.get('_route') == 'vos_event' %} active {% endif %}"
+                        href="{{path('vos_event')}}"
+                    >Vos événements</a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link {% if app.request.get('_route') == 'vos_reservation' %} active {% endif %}"
+                        href="{{path('vos_reservation')}}"
+                    >Vos résérvations</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                        class="nav-link dropdown-toggle"
+                        href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    >Profile</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="{{path('profile')}}">{{app.user.username}}</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{{path('app_logout')}}">Déconnecter</a></li>
+                    </ul>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a
+                        class="nav-link {% if app.request.get('_route') == 'app_first' %} active {% endif %}" href="{{path('app_first')}}"
+                    >Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link {% if app.request.get('_route') == 'inscrir' %} active {% endif %}" href="{{path('inscrir')}}"
+                    >Créer un compte</a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link {% if app.request.get('_route') == 'app_login' %} active {% endif %}" href="{{path('app_login')}}"
+                    >Se connecter</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</div>

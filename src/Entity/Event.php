@@ -88,6 +88,13 @@ class Event
         return $this->isArchived || $this->date<new \DateTime();
     }
 
+    public function canReserve(User|null $user) : bool {
+        if ($user == null || $user == $this->user) return false;
+        return !$this->reserves->exists(function($key, $element) use ($user){
+            return $element->getUser() == $user;
+        });
+    }
+
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;

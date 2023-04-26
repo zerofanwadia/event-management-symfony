@@ -23,10 +23,11 @@ class UserType extends AbstractType
             "type" => PasswordType::class,
             "first_options"=>["label"=> "Mot de pass"],
             "second_options"=>["label"=> "Confirmation"]
-            ])
-
-        ->add('Valider', SubmitType::class)
-        ;
+        ])->add('Valider', SubmitType::class, [
+            'attr' => [
+                'class' => "btn btn-dark btn-lg py-2 px-5"
+            ]
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

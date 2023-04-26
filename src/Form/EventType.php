@@ -25,7 +25,11 @@ class EventType extends AbstractType
                 'required'=>false,
                 'mapped'=>false
             ])
-            ->add('Valider', SubmitType::class)
+            ->add('Valider', SubmitType::class, [
+                'attr' => [
+                    'class' => "btn btn-dark btn-lg py-2 px-5"
+                ]
+            ])
         ;
     }
 

@@ -1,0 +1,39 @@
+
+.hero-section {
+    position: relative;
+    background: none;
+    min-height: 450px;
+    padding: 50px;
+}
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: brightness(25%);
+    background-size: cover;
+    background-color: #343a40;
+    background-image: url("h.png");
+}
+.main2 h3{
+    text-align: center;
+    color: #59C1BD;
+    font-size: 50px;
+    font-weight: 900;
+    padding-bottom: 25px;
+}
+
+.main2{
+    
+    background-color: #0D4C92;
+}
+
+.pro{
+    
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
